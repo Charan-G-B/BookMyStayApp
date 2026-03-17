@@ -1,6 +1,3 @@
-/**
- * Represents a booking request made by a guest.
- */
 public class Reservation {
 
     private String guestName;
