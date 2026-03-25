@@ -6,16 +6,16 @@ public class RoomInventory {
 
     public RoomInventory() {
         roomAvailability = new HashMap<>();
-        roomAvailability.put("Single", 2);
-        roomAvailability.put("Double", 1);
-        roomAvailability.put("Suite", 1);
+        roomAvailability.put("Single", 5);
+        roomAvailability.put("Double", 3);
+        roomAvailability.put("Suite", 2);
     }
 
     public int getAvailability(String roomType) {
         return roomAvailability.getOrDefault(roomType, 0);
     }
 
-    public boolean isValidRoomType(String roomType) {
-        return roomAvailability.containsKey(roomType);
+    public void incrementRoom(String roomType) {
+        roomAvailability.put(roomType, getAvailability(roomType) + 1);
     }
 }
