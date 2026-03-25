@@ -2,20 +2,23 @@ import java.util.*;
 
 public class RoomInventory {
 
-    private Map<String, Integer> roomAvailability;
+    private Map<String, Integer> rooms = new HashMap<>();
 
     public RoomInventory() {
-        roomAvailability = new HashMap<>();
-        roomAvailability.put("Single", 5);
-        roomAvailability.put("Double", 3);
-        roomAvailability.put("Suite", 2);
+        rooms.put("Single", 5);
+        rooms.put("Double", 3);
+        rooms.put("Suite", 2);
     }
 
-    public int getAvailability(String roomType) {
-        return roomAvailability.getOrDefault(roomType, 0);
+    public int getAvailability(String type) {
+        return rooms.getOrDefault(type, 0);
     }
 
-    public void incrementRoom(String roomType) {
-        roomAvailability.put(roomType, getAvailability(roomType) + 1);
+    public void decrement(String type) {
+        rooms.put(type, getAvailability(type) - 1);
+    }
+
+    public Map<String, Integer> getAll() {
+        return rooms;
     }
 }
